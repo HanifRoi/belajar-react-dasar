@@ -1,10 +1,20 @@
-function HelloWorld() {
+export default function HelloWorld() {
     return (
         <div>
-            <h1>Hello World</h1>
-            <p>Selamat belajar ReactJs, dari Hanif Roihan</p>
+            <HeaderHelloWorld/>
+            <ParagraphHelloWorld/>
         </div>
     )
 }
 
-export default HelloWorld;
+function HeaderHelloWorld() {
+    return (
+        <h1>Hello World!!!!</h1>
+    )
+}
+
+function ParagraphHelloWorld() {
+    return (
+        <p>Selamat belajar ReactJs, dari Hanif Roihan.</p>
+    )
+}
