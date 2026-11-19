@@ -1,14 +1,17 @@
 export default function HelloWorld() {
+    const props = {
+        text: "Hello World from spread syntax"
+    }
     return (
         <div>
-            <HeaderHelloWorld/>
+            <HeaderHelloWorld {...props}/>
             <ParagraphHelloWorld/>
         </div>
     )
 }
 
-function HeaderHelloWorld() {
-    const text = "Hello World";
+function HeaderHelloWorld({text = "Ups, lupa kasih teks"}) {
+    // const text = "Hello World";
     return (
         <h1 style={{ 
             color : "red",
