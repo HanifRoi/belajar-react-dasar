@@ -1,16 +1,40 @@
 import Todo from "./Todo";
 
 export default function TodoList(){
+    //collection component
+    const data = [
+        {
+            id: 0, //compoenent key
+            text: "Belajar HTML",
+            isCompleted: true
+        },
+        {
+            id: 1,
+            text: "Belajar CSS",
+            isCompleted: true
+        },
+        {
+            id: 2,
+            text: "Belajar JavaScript",
+            isCompleted: false
+        },
+        {
+            id: 3,
+            text: "Belajar Laravel",
+            isCompleted: true
+        },
+        {
+            id: 4,
+            text: "Belajar React",
+            isCompleted: false
+        },
+    ]
+
     return (
         <ul>
-            <Todo isCompleted={true} text="Belajar HTML"/>
-            <Todo isCompleted={true} text="Belajar CSS"/>
-            <Todo isCompleted={false} text="Belajar JavaScripts"/>
-            <Todo isCompleted={true} text="Belajar Laravel"/>
-            <Todo isCompleted={false} text="Belajar React"/>
-            <Todo isDeleted={false} isCompleted={true} text="Belajar Inggris"/>
-            <Todo isDeleted={false} isCompleted={false} text="Belajar Jepang"/>
-            <Todo isDeleted isCompleted={false} text="Belajar China"/>
+            {data.map((todo)=>(
+                <Todo key={todo.id}{...todo}/>
+            ))}
         </ul>
     )
 }
