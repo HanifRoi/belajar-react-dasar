@@ -8,6 +8,7 @@ import AlertButton from "../button/AlertButton";
 import MyButton from "../button/MyButton";
 import Toolbar from "../button/Toolbar";
 import SearchFrom from "../form/SearchForm";
+import SayHelloForm from "../form/SayHelloForm";
 
 createRoot(document.getElementById("root"))
     .render(
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root"))
                     alert("You click toolbar")
                 }}/>
                 <SearchFrom/>
+                <SayHelloForm/>
             </Container>
         </StrictMode>
     )
