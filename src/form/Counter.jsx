@@ -20,9 +20,12 @@ import { useState } from "react";
 export default function Counter(){
     let [counter, setCounter] = useState(0);
     function handleClick(){
-        setCounter(counter + 1);
+        // setCounter(counter + 1);
         // setCounter(counter + 1);
         // setCounter(counter + 1); gak bakal kehitung 3 kali, kalo mau langsung saja +3
+        setCounter((c) => c + 1);
+        setCounter((c) => c + 1);
+        setCounter((c) => c + 1);
         console.log(counter);
     }
 
