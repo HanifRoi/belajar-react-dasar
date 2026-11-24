@@ -12,20 +12,34 @@ export default function ProductList(){
     useEffect(() => {
         console.info("Call Use Effect With Empty Array []")
     }, []); //empty array cuma di panggil sekali aja
-    
-    
+
+    //ini adalah async, di bawah akan dibuat menjadi async await
+    // useEffect(() => {
+    //     if(load){//kalo harus diload akan di panggil
+    //         fetch("/product.json")
+    //         .then((response) => response.json())
+    //         .then((data) => setProducts(data))
+    //     }
+
+    //     return () => {
+    //         console.log("Product List component unmounted")
+    //     }
+
+    // }, [load]);//kalo value loadnya itu berubah, baru saya pengen panggil di effectnya nih.
+
+    //=================async await================
     useEffect(() => {
-        if(load){//kalo harus diload akan di panggil
-            fetch("/product.json")
-            .then((response) => response.json())
-            .then((data) => setProducts(data))
+        async function fetchProducts() {
+            const response = await fetch("/product.json");
+            const data = await response.json();
+            setProducts(data);
         }
 
-        return () => {
-            console.log("Product List component unmounted")
+        console.log("Load Product");
+        if(load){
+            fetchProducts();
         }
-
-    }, [load]);//kalo value loadnya itu berubah, baru saya pengen panggil di effectnya nih.
+    }, [load]);
 
     return (
         <div>
