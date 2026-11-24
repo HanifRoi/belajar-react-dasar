@@ -1,27 +1,36 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Product from "./Product";
 
 export default function ProductList(){
     const [products, setProducts] = useState([]);
-    const loaded = useRef(false);
+    const [load, setLoad] = useState(false);
+
+    function handleClick(){
+        setLoad(true);
+    }
 
     useEffect(() => {
-        if(loaded.current === false){
+        console.info("Call Use Effect With Empty Array []")
+    }, []); //empty array cuma di panggil sekali aja
+    
+    
+    useEffect(() => {
+        if(load){//kalo harus diload akan di panggil
             fetch("/product.json")
             .then((response) => response.json())
             .then((data) => setProducts(data))
-            .then(() => loaded.current = true)
         }
 
-        //Clean Up
         return () => {
-            console.log("ProductList component unmounted")
+            console.log("Product List component unmounted")
         }
-    });
+
+    }, [load]);//kalo value loadnya itu berubah, baru saya pengen panggil di effectnya nih.
 
     return (
         <div>
             <h1>Product List</h1>
+            <button onClick={handleClick}>Load Product</button>
             {products.map((product) => (
                 <Product key={product.id} product={product}/>
             ))}
