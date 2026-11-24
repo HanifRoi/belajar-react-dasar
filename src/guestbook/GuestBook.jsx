@@ -16,9 +16,10 @@ export default function GuestBook(){
         alert(`Name: ${name}, Message: ${message}`);
     }
 
-    function handleChangeName(e){
-        setName(e.target.value);
-    }
+    // function handleChangeName(e){
+    //     setName(e.target.value);
+    // } nontaktifkan dulu karena nanti ada pesan peringatan terus.
+    
     function handleChangeMessage(e){
         setMessage(e.target.value);
     }
